@@ -1,9 +1,11 @@
 # balena-electron-vue
 
-A base [Vue](https://vuejs.org/) app that runs in the [Electron](https://electronjs.org/) environment for [Balena](https://www.balena.io) deployment.
+A base [Vue](https://vuejs.org/) app that runs in the [Electron](https://electronjs.org/) environment for [Balena](https://www.balena.io) Raspberry Pi deployment.
 It exposes the process.env environment variables and VUE_APP_* environment variables on the $env property of each Vue component.
 For development the VUE_APP_* environment variables are stored in an .env file (typically .env.local) and in production the
 VUE_APP_* environment variables are in the Balena Cloud Environment Variables panel.
+
+Based on [balena-electron-vuecli3](https://github.com/Lurow/balena-electron-vuecli3)
 
 ## Project setup
 ```
