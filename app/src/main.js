@@ -13,8 +13,17 @@ if (process.env.NODE_ENV === 'production') {
 
 }
 
+env = Object.assign({}, process.env, env)
+
+// Remove 'VUE_APP_' from the beginning of Vue app environment variable names
+Object.keys(env).forEach(key => {
+  if (key.startsWith('VUE_APP_')) {
+    delete Object.assign(env, {[key.slice(8)]: env[key] })[key]
+  }
+})
+
 // Make environment variables available as $env in Vue components
-Vue.prototype.$env = Object.assign({}, process.env, env)
+Vue.prototype.$env = env
 
 new Vue({
   render: h => h(App),

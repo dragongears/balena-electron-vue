@@ -15,9 +15,8 @@ if (process.env.NODE_ENV === 'production') {
     const vueAppVars = {}
 
     Object.keys(process.env).forEach(key => {
-      let value = process.env[key];
       if (key.startsWith('VUE_APP_')) {
-        vueAppVars[key] = value
+        vueAppVars[key] = process.env[key]
       }
     })
 
