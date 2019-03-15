@@ -7,11 +7,11 @@ each Vue component, removing 'VUE_APP_' from the beginning of Vue app environmen
 For development the VUE_APP_* environment variables are stored in an .env file (typically .env.local) and in production the
 VUE_APP_* environment variables are in the Balena Cloud Environment Variables panel.
 
-**The problem:** During development, Vue CLI 3 brings over the VUE_APP_* environment variables to process.env for the render process from
+**Problem:** During development, Vue CLI 3 brings over the VUE_APP_* environment variables to process.env for the render process from
 the .env* files but when deployed to production Vue CLI 3 doesn't bring over the VUE_APP_* environment variables from the
 Balena device variables dashboard.
 
-**The solution:** Since the VUE_APP_* environment variables are available in the main process (background.js), send a synchronous
+**Solution:** Since the VUE_APP_* environment variables are available in the main process (background.js), send a synchronous
 message to the render process (main.js) with the environment variables.
 
 Based on [balena-electron-vuecli3](https://github.com/Lurow/balena-electron-vuecli3)
