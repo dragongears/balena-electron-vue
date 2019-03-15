@@ -11,7 +11,7 @@ import {
 if (process.env.NODE_ENV === 'production') {
   const { ipcMain } = require('electron')
 
-  ipcMain.on('synchronous-message', (event) => {
+  ipcMain.on('request-env-vars', (event) => {
     const vueAppVars = {}
 
     Object.keys(process.env).forEach(key => {

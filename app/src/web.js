@@ -1,19 +1,11 @@
 import Vue from 'vue'
+import axios from 'axios'
 import App from './App.vue'
 
+Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
 
-let env = {}
-
-// In production mode get VUE_APP_* environment variables from the background process
-if (process.env.NODE_ENV === 'production') {
-  const { ipcRenderer } = require('electron')
-
-  env = ipcRenderer.sendSync('request-env-vars')
-
-}
-
-env = Object.assign({}, process.env, env)
+let env = Object.assign({}, process.env)
 
 // Remove 'VUE_APP_' from the beginning of Vue app environment variable names
 Object.keys(env).forEach(key => {
